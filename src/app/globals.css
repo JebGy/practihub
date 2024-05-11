@@ -31,3 +31,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.bg-salmon-500 {
+  background: #e07a57;
+}
