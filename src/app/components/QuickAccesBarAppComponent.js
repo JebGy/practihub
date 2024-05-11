@@ -23,7 +23,7 @@ function QuickAccesBarAppComponent({ subRoute }) {
           action={() => {
             if (!subRoute) handleUpdateModalStatus();
           }}
-          title={subRoute ? "Agregar Subcarpeta" : "Crear carpeta"}
+          title={subRoute ? "Cargar documentos" : "Crear carpeta"}
           variant={"second"}
           link={null}
         />

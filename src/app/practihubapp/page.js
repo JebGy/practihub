@@ -8,7 +8,7 @@ function page() {
     <div className="bg-zinc-100 h-screen flex flex-col gap-0">
       <HeaderAppComponent />
       <QuickAccesBarAppComponent />
-      <ShowFilesAppComponent />
+      <ShowFilesAppComponent file={null} />
     </div>
   );
 }

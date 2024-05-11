@@ -13,7 +13,7 @@ import {
 import ActionButtonAppComponent from "./ActionButtonAppComponent";
 import { app } from "../firebaseInit";
 
-function ActionModalFormAppComponent({ closeFunction }) {
+function ActionModalFormUploadAppComponent({ closeFunction, file }) {
   const db = getFirestore(app);
   const selectedFile = useRef();
   const fileName = useRef();
@@ -142,4 +142,4 @@ function ActionModalFormAppComponent({ closeFunction }) {
   );
 }
 
-export default ActionModalFormAppComponent;
+export default ActionModalFormUploadAppComponent;
