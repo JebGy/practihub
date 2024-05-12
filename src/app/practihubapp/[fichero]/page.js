@@ -8,7 +8,7 @@ function page({ params }) {
   return (
     <div className="bg-zinc-100 h-screen flex flex-col gap-0">
       <HeaderAppComponent current={fichero} />
-      <QuickAccesBarAppComponent subRoute={true} />
+      <QuickAccesBarAppComponent subRoute={true} route={fichero} />
       <ShowFilesAppComponent file={fichero} />
     </div>
   );

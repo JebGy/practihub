@@ -15,11 +15,13 @@ import ActionButtonAppComponent from "./ActionButtonAppComponent";
 import { Accordion, Placeholder } from "rsuite";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import ActionModalFormUploadAppComponent from "./ActionModalFormUploadAppComponent";
 
 function ShowFilesAppComponent({ file }) {
   const db = getFirestore(app);
   const [files, setFiles] = React.useState([]);
   const [subfiles, setsubFiles] = React.useState([]);
+  const [activeModal, setActiveModal] = React.useState([]);
   const navigator = useRouter();
 
   useEffect(() => {
@@ -47,7 +49,6 @@ function ShowFilesAppComponent({ file }) {
       console.log("No existe");
     }
   }
-  console.log(files);
   return (
     <div className="text-black flex flex-col w-full h-full overflow-y-auto p-8 gap-0">
       <div className="flex flex-col gap-8 w-full overflow-hidden h-full overflow-y-auto">
@@ -71,6 +72,7 @@ function ShowFilesAppComponent({ file }) {
                 );
               })
           : null}
+
         {files !== null && subfiles ? (
           <Accordion bordered>
             {subfiles?.map((dato) => {
@@ -79,7 +81,7 @@ function ShowFilesAppComponent({ file }) {
                   <p className="font-bold">
                     Documentos existentes: {dato.ficheros.length}
                   </p>
-                  <div className="p-4">
+                  <div className="p-4 flex flex-col gap-4 text-purple-600">
                     {dato.ficheros.map((value, index, array) => {
                       return (
                         <Link
