@@ -47,6 +47,7 @@ function ActionModalFormAppComponent({ closeFunction }) {
       })
       .then(() => {
         alert("Datos agregados a la carpeta");
+        window.location.reload();
         closeFunction();
       })
       .catch((error) => {

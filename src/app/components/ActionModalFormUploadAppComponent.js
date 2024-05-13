@@ -56,6 +56,7 @@ function ActionModalFormUploadAppComponent({ closeFunction, file }) {
       datos: updatedData,
     }).then(() => {
       alert("Updated");
+      window.location.reload();
     });
   }
 
