@@ -25,7 +25,7 @@ function ActionModalFormAppComponent({ closeFunction }) {
       selectedFile.current.value !== "no"
         ? selectedFile.current.value
         : fileName.current.value;
-    const fileRef = doc(db, "Carpetas", filenameValue);
+    const fileRef = doc(db, "Carpetas", decodeURIComponent(filenameValue));
     const newData = {
       nombre: subfileName.current.value,
       ficheros: [],

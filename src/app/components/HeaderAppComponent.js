@@ -4,7 +4,9 @@ import React from "react";
 
 function HeaderAppComponent({ current }) {
   return (
+    
     <div className="w-full h-fit p-8 flex flex-row items-center justify-between bg-zinc-900 text-white">
+      
       <h1 className="font-bold text-4xl text-white">
         {current !== undefined ? (
           <p>
@@ -14,7 +16,7 @@ function HeaderAppComponent({ current }) {
             >
               PractiHub
             </Link>
-            {`/ ${current}`}
+            {`/ ${decodeURIComponent(current)}`}
           </p>
         ) : (
           <Link href={"/practihubapp"}>PractiHub</Link>

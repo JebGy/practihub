@@ -25,7 +25,7 @@ function ActionModalFormUploadAppComponent({ closeFunction, file }) {
   }, []);
 
   const getSubFiles = async () => {
-    const documentRef = doc(db, "Carpetas", file);
+    const documentRef = doc(db, "Carpetas", decodeURIComponent(file));
     const docSnap = await getDoc(documentRef);
 
     if (docSnap.exists()) {
@@ -40,7 +40,7 @@ function ActionModalFormUploadAppComponent({ closeFunction, file }) {
     const filePath = `${selectedFile.current.value}/${fileInput.current.files[0].name}`;
     uploadFileFromStudent(fileInput.current.files[0], filePath);
 
-    const documentRef = doc(db, "Carpetas", file);
+    const documentRef = doc(db, "Carpetas", decodeURIComponent(file));
     const documentSnapshot = await getDoc(documentRef);
     const updatedData = documentSnapshot.data().datos.map((item) => {
       if (item.nombre === selectedFile.current.value) {

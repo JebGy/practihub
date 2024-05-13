@@ -41,7 +41,7 @@ function ShowFilesAppComponent({ file }) {
   }
 
   async function getSubColection() {
-    const fileRef = doc(db, "Carpetas", file !== null ? file : "");
+    const fileRef = doc(db, "Carpetas", file !== null ? decodeURIComponent(file) : "");
     const ficheros = await getDoc(fileRef);
     if (ficheros.exists()) {
       setsubFiles(ficheros.data().datos);
