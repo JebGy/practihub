@@ -35,3 +35,12 @@ body {
 .bg-salmon-500 {
   background: #e07a57;
 }
+
+.text-salmon-500 {
+  color: #e07a57;
+}
+
+/*Create a class to create an pentagon shape*/
+.pentagon {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+}
