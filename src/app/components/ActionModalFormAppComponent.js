@@ -18,8 +18,10 @@ function ActionModalFormAppComponent({ closeFunction }) {
   const selectedFile = useRef();
   const fileName = useRef();
   const [subfiles, setSubfiles] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
   const subfileName = useRef();
   const handleSubmit = () => {
+    setLoading(true);
     const filenameValue =
       selectedFile.current.value !== undefined &&
       selectedFile.current.value !== "no"
@@ -47,6 +49,7 @@ function ActionModalFormAppComponent({ closeFunction }) {
       })
       .then(() => {
         alert("Datos agregados a la carpeta");
+        setLoading(false)
         window.location.reload();
         closeFunction();
       })
@@ -131,12 +134,14 @@ function ActionModalFormAppComponent({ closeFunction }) {
               className="border-b-2 border-zinc-950 outline-none w-full"
             />
           </label>
-          <ActionButtonAppComponent
-            action={handleSubmit}
-            title={"Crear carpeta"}
-            variant={"primary"}
-            link={null}
-          />
+          {loading ? null : (
+            <ActionButtonAppComponent
+              action={handleSubmit}
+              title={"Crear carpeta"}
+              variant={"primary"}
+              link={null}
+            />
+          )}
         </div>
       </form>
     </div>

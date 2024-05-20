@@ -17,6 +17,7 @@ function ActionModalFormUploadAppComponent({ closeFunction, file }) {
   const db = getFirestore(app);
   const selectedFile = useRef();
   const [subfiles, setSubfiles] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
 
   const fileInput = useRef();
 
@@ -37,9 +38,10 @@ function ActionModalFormUploadAppComponent({ closeFunction, file }) {
   };
 
   async function handleUpload() {
+    setLoading(true)
     const filePath = `${selectedFile.current.value}/${fileInput.current.files[0].name}`;
     uploadFileFromStudent(fileInput.current.files[0], filePath);
-
+    
     const documentRef = doc(db, "Carpetas", decodeURIComponent(file));
     const documentSnapshot = await getDoc(documentRef);
     const updatedData = documentSnapshot.data().datos.map((item) => {
@@ -51,11 +53,12 @@ function ActionModalFormUploadAppComponent({ closeFunction, file }) {
       }
       return item;
     });
-
+    
     await updateDoc(documentRef, {
       datos: updatedData,
     }).then(() => {
-      alert("Updated");
+      alert("Se cargó el documento");
+      setLoading(false)
       window.location.reload();
     });
   }
@@ -108,14 +111,16 @@ function ActionModalFormUploadAppComponent({ closeFunction, file }) {
             ref={fileInput}
             className="border-b-2 border-zinc-950 outline-none w-full"
           />
-          <ActionButtonAppComponent
-            action={() => {
-              handleUpload();
-            }}
-            title={"Crear carpeta"}
-            variant={"primary"}
-            link={null}
-          />
+          {loading ? null : (
+            <ActionButtonAppComponent
+              action={() => {
+                handleUpload();
+              }}
+              title={"Crear carpeta"}
+              variant={"primary"}
+              link={null}
+            />
+          )}
         </div>
       </form>
     </div>
