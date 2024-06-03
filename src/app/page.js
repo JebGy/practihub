@@ -24,7 +24,7 @@ export default function Home() {
         <p className="font-bold lg:text-2xl text-lg mb-4">Optimizando tus procesos</p>
         <ActionButtonAppComponent
           action={null}
-          link={"/practihubapp"}
+          link={"/login"}
           title={"Probar ahora"}
           variant={"primaty"}
         />
