@@ -33,7 +33,9 @@ function HeaderAppComponent({ current }) {
       <div className="flex flex-row items-center justify-center gap-4">
         <button
           onClick={() => {
-            router.push("/practihubapp/admin");
+            if (userData?.role === "admin") {
+              router.push("/practihubapp/admin");
+            }
           }}
           className="font-bold"
         >

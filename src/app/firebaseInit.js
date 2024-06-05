@@ -55,11 +55,11 @@ export function uploadFileFromStudent(file, route) {
   });
 }
 
-export function createUser(uname, pass) {
+export async function createUser(uname, pass) {
   const uid = uuidv4();
   setDoc(doc(getFirestore(app), "Users", uname), {
     uid: uid,
-    role: "admin",
+    role: "user",
     uname: uname,
     pass: pass,
   });
