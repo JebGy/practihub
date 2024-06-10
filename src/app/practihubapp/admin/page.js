@@ -65,14 +65,14 @@ function Page() {
       </div>
       <div className="p-4">
         {openModalAdd && (
-          <div className="h-fit p-8 w-96 bg-zinc-100 grid lg:grid-cols-2 text-zinc-800 absolute left-0 right-0 top-0 bottom-0 m-auto rounded-lg shadow-lg">
+          <div className="h-fit p-8 w-96 bg-zinc-100 grid text-zinc-800 absolute left-0 right-0 top-0 bottom-0 m-auto rounded-lg shadow-lg">
             <form
               className="flex flex-col h-fit w-full gap-4"
               onSubmit={(e) => {
                 handleCreateUser(e);
               }}
             >
-              <label className="flex flex-col text-lg">
+              <label className="flex flex-col text-lg w-full">
                 Usuario
                 <input
                   required
