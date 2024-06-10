@@ -29,10 +29,13 @@ function Page() {
     e.preventDefault();
     const name = e.target.uname.value;
     const pass = e.target.pass.value;
-    createUser(name, pass).then(() => {
-      setOpenModalAdd(false);
-      location.reload();
-    });
+    createUser(name, pass)
+      .then(() => {
+        setOpenModalAdd(false);
+      })
+      .then(() => {
+        location.reload();
+      });
   };
 
   return (
