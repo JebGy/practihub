@@ -132,7 +132,7 @@ function ShowFilesAppComponent({ file }) {
                     />
                     {isAdmin ? (
                       <button
-                        className="text-red-600 font-bold h-full border-red-400 border-2 rounded-lg  p-2"
+                        className="text-red-600 font-bold h-full border-red-400 border-2 rounded-lg  p-4"
                         onClick={() =>
                           //ask for confirmation
                           {
