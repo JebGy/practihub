@@ -91,12 +91,7 @@ export async function loginUser(uname, pass, router) {
 export async function deleteUser(uname) {
   const docRef = doc(getFirestore(app), "Users", uname);
   await deleteDoc(docRef).then((docSnap) => {
-    if (docSnap.exists()) {
-      location.reload();
-      return true;
-    } else {
-      return false;
-    }
+    location.reload();
   });
 }
 
