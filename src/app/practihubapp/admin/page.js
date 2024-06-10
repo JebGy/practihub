@@ -34,7 +34,9 @@ function Page() {
         setOpenModalAdd(false);
       })
       .then(() => {
-        location.reload();
+        getAllUsers().then((users) => {
+          setUsersData(users);
+        });
       });
   };
 
