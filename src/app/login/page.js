@@ -11,7 +11,7 @@ function Page() {
   function handleSubmit(e) {
     e.preventDefault();
     loginUser(e.target.uname.value, e.target.pass.value, router)
-      ? ""
+      ? alert("Credenciales correctas")
       : alert("Credenciales incorrectas");
   }
 
@@ -46,9 +46,6 @@ function Page() {
         </label>
         <button
           type="submit"
-          onClick={() => {
-            createUser(e.target.uname.value, e.target.pass.value, router);
-          }}
           className="bg-salmon-500 p-2 rounded-lg text-lg text-white"
         >
           Iniciar

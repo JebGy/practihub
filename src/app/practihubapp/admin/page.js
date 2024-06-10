@@ -31,6 +31,7 @@ function Page() {
     const pass = e.target.pass.value;
     createUser(name, pass).then(() => {
       setOpenModalAdd(false);
+      location.reload();
     });
   };
 

@@ -75,11 +75,13 @@ export async function loginUser(uname, pass, router) {
       if (docSnap.data().pass === pass) {
         sessionStorage.setItem("ph_um", JSON.stringify(docSnap.data()));
         router.push("/practihubapp", { scroll: false });
+        alert("Credenciales correctas");
         return true;
       } else {
         return false;
       }
     } else {
+      alert("Credenciales incorrectas");
       return false;
     }
   });
@@ -90,6 +92,7 @@ export async function deleteUser(uname) {
   const docRef = doc(getFirestore(app), "Users", uname);
   await deleteDoc(docRef).then((docSnap) => {
     if (docSnap.exists()) {
+      location.reload();
       return true;
     } else {
       return false;
