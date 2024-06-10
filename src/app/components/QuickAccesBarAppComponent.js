@@ -18,7 +18,7 @@ function QuickAccesBarAppComponent({ subRoute, route }) {
       // Lógica para cerrar sesión por inactividad
       sessionStorage.removeItem("ph_um");
       window.location.href = "/login"; // Redirigir al usuario a la página de inicio de sesión
-    }, 60000); 
+    }, 40000); 
   };
 
   useEffect(() => {
