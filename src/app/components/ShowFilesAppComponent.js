@@ -160,17 +160,19 @@ function ShowFilesAppComponent({ file }) {
                     <p className="font-bold">
                       Documentos existentes: {dato.ficheros.length}
                     </p>
-                    <button
-                      className="text-red-600 font-bold p-2 border-2 border-red-400 rounded-lg"
-                      onClick={() => {
-                        const n = confirm(
-                          "¿Está seguro que desaea eliminar este folder?"
-                        );
-                        if (n) handleRemoveSubfile(datoIndex);
-                      }}
-                    >
-                      Remover
-                    </button>
+                    {isAdmin ? (
+                      <button
+                        className="text-red-600 font-bold p-2 border-2 border-red-400 rounded-lg"
+                        onClick={() => {
+                          const n = confirm(
+                            "¿Está seguro que desaea eliminar este folder?"
+                          );
+                          if (n) handleRemoveSubfile(datoIndex);
+                        }}
+                      >
+                        Remover
+                      </button>
+                    ) : null}
                   </div>
                   <div className="p-4 flex flex-col gap-4 text-purple-600">
                     {dato.ficheros.map((value, fileIndex) => (
